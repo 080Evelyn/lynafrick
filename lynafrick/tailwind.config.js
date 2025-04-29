@@ -2,7 +2,11 @@
 export default {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'android-sm': '360px',
+      }
+    },
   },
   plugins: [],
 }
