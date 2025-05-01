@@ -77,28 +77,28 @@ function Home() {
                     Nigeria Culture
                 </h1>
 
-                <p className='text-[10px] md:text-[20px] leading-[10px] md:leading-[20px] text-[#000000]'>
+                <p className='text-[10px] md:text-[17px] lg:text-[20px] leading-[10px] md:leading-[20px] text-[#000000]'>
                     Nigerian expatriates and food enthusiasts worldwide can reconnect with the flavors of home. 
                     The platform ensures easy access to traditional ingredients
                 </p>
 
                 <span className='flex items-center space-x-2'>
                     <img src={Frame} alt="" className='md:w-[30px]'/> 
-                    <p className='font-[poppins-regular] text-[10px] md:text-[20px]'>
+                    <p className='font-[poppins-regular] text-[10px] md:text-[17px] lg:text-[20px]'>
                         Convenience and Accessibility
                     </p>
                 </span>
 
                 <span className='flex items-center space-x-2'>
                     <img src={Frame} alt="" className='md:w-[30px]'/> 
-                    <p className='font-[poppins-regular] text-[10px] md:text-[20px]'>
+                    <p className='font-[poppins-regular] text-[10px] md:text-[17px] lg:text-[20px]'>
                         Support for Cultural Connections
                     </p>
                 </span>
 
                 <span className='flex items-center space-x-2'>
                     <img src={Frame} alt="" className='md:w-[30px]'/> 
-                    <p className='font-[poppins-regular] text-[10px] md:text-[20px]'>
+                    <p className='font-[poppins-regular] text-[10px] md:text-[17px] lg:text-[20px]'>
                         Quality Assurance and Trusted Sourcing
                     </p>
                 </span>
@@ -106,13 +106,13 @@ function Home() {
 
             <div className="relative w-fit max-w-md mx-auto mt-10 left-[10px]">
                 {/* Background square (behind image) */}
-                <div className="absolute top-[-12px] right-[-3px] lg:right-[-70px] w-[100px] h-[120px] lg:h-[220px] bg-[#01282F] z-0 lg:w-[300px]"></div>
+                <div className="absolute top-[-12px] right-[-3px] md:right-[-25px] lg:right-[-70px] w-[100px] h-[120px] md:h-[220px] bg-[#01282F] z-0 md:w-[300px]"></div>
 
                 {/* Foreground image */}
                 <img
                     src={image1}
                     alt="Family cooking"
-                    className="relative z-10 w-[160px] lg:w-[400px] h-auto object-cover right-[5px] lg:right-[-50px]"
+                    className="relative z-10 w-[160px] md:w-[400px] h-auto object-cover right-[5px] md:right-[-10px] lg:right-[-50px]"
                 />
             </div>
 
