@@ -33,8 +33,9 @@ function NavBar() {
         </div>
 
         <div className='hidden md:flex items-center gap-[7px]'>
-          <button className='md:flex text-[#01282F] font-semibold'>Sign Up</button>
-          <button className='md:flex bg-[#01282F] text-white font-semibold px-[20px] py-[2px]'>Login</button>
+          <button 
+          className='md:flex text-[#01282F] rounded-sm font-semibold hover:bg-[#01282F] hover:text-white py-[6px] px-[20px]'><NavLink to='/signup'>Sign Up</NavLink></button>
+          <button className='md:flex text-[#01282F] rounded-sm hover:bg-[#01282F] hover:text-white font-semibold py-[6px] px-[20px]'><NavLink to='/login'>Login</NavLink></button>
         </div>
 
         {/* Hamburger Icon */}
@@ -46,10 +47,11 @@ function NavBar() {
         <div className='left-7 bg-gray-200 shadow-lg w-full md:hidden z-50'>
           <ul className='flex flex-col gap-[10px] items-start pl-3 text-[#01282F] py-[20px]'>
             <li><NavLink to="/home" className='hover:font-semibold' onClick={() => setClick(false)}>Home</NavLink></li>
-            <li><NavLink to="/product" className='hover:font-semibold' onClick={() => setClick(false)}>Product</NavLink></li>
-            <li><NavLink to="/about-us" className='hover:font-semibold' onClick={() => setClick(false)}>About Us</NavLink></li>
-            <li><NavLink to="/contact-us" className='hover:font-semibold' onClick={() => setClick(false)}>Contact Us</NavLink></li>
-            <li><NavLink to="/blog" className='hover:font-semibold' onClick={() => setClick(false)}>Blog</NavLink></li>
+            <li><NavLink to="/product" className='hover:font-semibold' onClick={() => setClick(false)}>Products</NavLink></li>
+            <li><NavLink to="/about-us" className='hover:font-semibold' onClick={() => setClick(false)}>About</NavLink></li>
+            <li><NavLink to="/contact-us" className='hover:font-semibold' onClick={() => setClick(false)}>Contact</NavLink></li>
+            <li><NavLink to="/profile" className='hover:font-semibold' onClick={() => setClick(false)}>Profile</NavLink></li>
+            <li><NavLink to="/shopping-cart" className='hover:font-semibold' onClick={() => setClick(false)}>Shopping Cart</NavLink></li>
           </ul>
         </div>
       )}

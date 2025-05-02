@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from '../../assets/Images/image.png'
 import Arrowicon from '../../assets/circle.svg'
 import Arrowicon2 from '../../assets/circleg.svg'
@@ -10,9 +10,17 @@ import imageSo1 from '../../assets/Images/Mask Group.png'
 import imageGro from '../../assets/Images/Mask Group (1).png'
 import imageSo2 from '../../assets/Images/image (3).png'
 import imageSo3 from '../../assets/Images/Mask Group (2).png'
+import Button from '../reusablecomponents/button'
+import  imageB from '../../assets/Images/Images.png'
 
 
 function Home() {
+
+    const [showMore, setShowMore] = useState(false);
+
+    const handleShowMore = () => {
+        setShowMore(prev => !prev);
+    }
   return (
 
     <div className='bg-gray-200'>
@@ -124,7 +132,7 @@ function Home() {
 
         </div>
 
-        <div>
+        <div className='py-8'>
             <div className='flex flex-col items-center justify-center text-center py-4 md:py-10 text-[#01282F]'>
                 <h3 className='font-bold font-poppins md:text-[24px]'>Browse from Our Categories</h3>
                 <p className='text-[10px] font-poppins md:text-[20px]'>We bring Ingredient from all part of Nigeria</p>
@@ -143,28 +151,47 @@ function Home() {
                     <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from  Rivers, Bayelsa, Cross River, Akwa Ibom, Edo, Delta</p>
                 </div>
 
-                <div>
-                    <img src={imageSo1} alt="" className='rounded-lg'/>
-                    <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>South East Region</h3>
-                    <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from Anambra, Enugu, Imo, Abia, Ebonyi</p>
-                </div>
-                <div>
-                    <img src={imageGro} alt="" className='rounded-lg'/>
-                    <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>South West Region</h3>
-                    <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from Lagos, Ogun, Oyo, Osun, Ondo, Ekiti</p>
-                </div>
+                {showMore && (
+                    <>
+                        <div>
+                            <img src={imageSo1} alt="" className='rounded-lg'/>
+                            <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>South East Region</h3>
+                            <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from Anambra, Enugu, Imo, Abia, Ebonyi</p>
+                        </div>
+                        <div>
+                            <img src={imageGro} alt="" className='rounded-lg'/>
+                            <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>South West Region</h3>
+                            <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from Lagos, Ogun, Oyo, Osun, Ondo, Ekiti</p>
+                        </div>
 
-                <div>
-                    <img src={imageSo2} alt="" className='rounded-lg'/>
-                    <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>North Central Region</h3>
-                    <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from Kogi, Benue, Niger,
-                    Kwara, Plateau, Nasarawa, FCT Abuja</p>
-                </div>
+                        <div>
+                            <img src={imageSo2} alt="" className='rounded-lg'/>
+                            <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>North Central Region</h3>
+                            <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from Kogi, Benue, Niger,
+                            Kwara, Plateau, Nasarawa, FCT Abuja</p>
+                        </div>
 
-                <div>
-                    <img src={imageSo3} alt="" className='rounded-lg'/>
-                    <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>North East Region</h3>
-                    <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from Borno, Yobe, Taraba, Adamawa, Gombe, Bauchi</p>
+                        <div>
+                            <img src={imageSo3} alt="" className='rounded-lg'/>
+                            <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>North East Region</h3>
+                            <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from Borno, Yobe, Taraba, Adamawa, Gombe, Bauchi</p>
+                        </div>
+                </>
+                )}
+            </div>
+
+            <div>
+                <Button onClick={handleShowMore}/>
+            </div>
+        </div>
+
+        <div className='bg-[#FFFFFF] py-6 '>
+            <div className='font-bold font-poppins text-center md:text-[24px]'>Explore Our Latest Products</div>
+
+            <div className='grid grid-cols-2 px-3 md:grid-cols-4 md:px-20 font-montserrat'>
+                <div className='bg-gray-200 rounded-lg'>
+                    <img src={imageB} alt="" />
+
                 </div>
             </div>
         </div>
@@ -175,11 +202,3 @@ function Home() {
 export default Home;
 
 
-<div className='relative w-full flex justify-center items-center px-3 md:px-20 mt-6'>
-
-<div className='relative w-full left-2 max-w-[500px] md:left-20 md:max-w-[700px]'>
-    <div className='bg-[#01282F] w-[110px] md:w-[300px] h-[100px] md:h-[300px] absolute top-1 md:top-5 left-[60px] md:left-[200px] z-0 '>
-        <img src={image1} alt="" className='relative z-10 right-[10px] top-3 w-full md:w-[400px] h-[150px] md:h-[300px]'/>
-    </div>
-</div>
-</div>
