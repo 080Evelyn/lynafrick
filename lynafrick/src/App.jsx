@@ -7,6 +7,10 @@ import Product from './Components/pages/product'
 import AboutUs from './Components/pages/aboutUs'
 import ContactUs from './Components/pages/contactUs'
 import Blog from './Components/pages/blog'
+import Profile from './Components/pages/profile'
+import Cart from './Components/pages/shoppingCart'
+import Login from './Components/login/Login'
+import Signup from './Components/signup/Signup'
 
 function App() {
 
@@ -21,6 +25,10 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     
     </>
