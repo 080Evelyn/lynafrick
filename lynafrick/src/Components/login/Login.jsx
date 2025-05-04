@@ -1,5 +1,5 @@
 import React from 'react'
-import Lynlogo from '../../../public/LYN.svg'
+import Lynlogo from '../../../src/assets/LYN.svg'
 
 function Login() {
   return (

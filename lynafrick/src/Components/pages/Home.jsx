@@ -17,9 +17,14 @@ import  imageB from '../../assets/Images/Images.png'
 function Home() {
 
     const [showMore, setShowMore] = useState(false);
+    const [showM, setShowM] = useState(false);
 
     const handleShowMore = () => {
         setShowMore(prev => !prev);
+    }
+
+    const handleShowM = () => {
+        setShowM(prev => !prev);
     }
   return (
 
@@ -142,13 +147,13 @@ function Home() {
                 <div>
                     <img src={imageSt} alt="" className='rounded-lg'/>
                     <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>North West Region</h3>
-                    <p className='text-[10px] md:text-[20px] leading-[10px] md:leading-[20px] text-gray-600'>Offering You the best fromKano, Kaduna, Katsina, Sokoto, Jigawa, Kebbi, Zamfara</p>
+                    <p className='text-[10px] md:text-[20px] leading-[10px] md:leading-[20px] text-[#02020280]'>Offering You the best fromKano, Kaduna, Katsina, Sokoto, Jigawa, Kebbi, Zamfara</p>
                 </div>
 
                 <div>
                     <img src={imageSo} alt="" className='rounded-lg'/>
                     <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>South South Region</h3>
-                    <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from  Rivers, Bayelsa, Cross River, Akwa Ibom, Edo, Delta</p>
+                    <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-[#02020280]'>Offering You the best from  Rivers, Bayelsa, Cross River, Akwa Ibom, Edo, Delta</p>
                 </div>
 
                 {showMore && (
@@ -156,43 +161,132 @@ function Home() {
                         <div>
                             <img src={imageSo1} alt="" className='rounded-lg'/>
                             <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>South East Region</h3>
-                            <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from Anambra, Enugu, Imo, Abia, Ebonyi</p>
+                            <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-[#02020280]'>Offering You the best from Anambra, Enugu, Imo, Abia, Ebonyi</p>
                         </div>
                         <div>
                             <img src={imageGro} alt="" className='rounded-lg'/>
                             <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>South West Region</h3>
-                            <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from Lagos, Ogun, Oyo, Osun, Ondo, Ekiti</p>
+                            <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-[#02020280]'>Offering You the best from Lagos, Ogun, Oyo, Osun, Ondo, Ekiti</p>
                         </div>
 
                         <div>
                             <img src={imageSo2} alt="" className='rounded-lg'/>
                             <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>North Central Region</h3>
-                            <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from Kogi, Benue, Niger,
+                            <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-[#02020280]'>Offering You the best from Kogi, Benue, Niger,
                             Kwara, Plateau, Nasarawa, FCT Abuja</p>
                         </div>
 
                         <div>
                             <img src={imageSo3} alt="" className='rounded-lg'/>
                             <h3 className='font-poppins font-bold text-[#01282F] text-[15px] md:text-[24px]'>North East Region</h3>
-                            <p className='text-[10px] md:text-[17px] leading-[10px] md:leading-[15px] text-gray-600'>Offering You the best from Borno, Yobe, Taraba, Adamawa, Gombe, Bauchi</p>
+                            <p className='text-[10px] text-[#02020280] md:text-[17px] leading-[10px] md:leading-[15px]'>Offering You the best from Borno, Yobe, Taraba, Adamawa, Gombe, Bauchi</p>
                         </div>
                 </>
                 )}
             </div>
 
-            <div>
+            <div className='justify-end flex pr-3'>
                 <Button onClick={handleShowMore}/>
             </div>
         </div>
 
-        <div className='bg-[#FFFFFF] py-6 '>
-            <div className='font-bold font-poppins text-center md:text-[24px]'>Explore Our Latest Products</div>
+        <div className='bg-[#FFFFFF] py-8'>
+            <div className=' md:leading-4 leading-4'>
+                <div className='font-bold font-poppins text-center md:text-[24px]'>Explore Our Latest Products</div>
+                <div className='text-center text-[#02020280] text-[10px] md:text-[20px]'>Here are some of our new products</div>
+            </div>
 
-            <div className='grid grid-cols-2 px-3 md:grid-cols-4 md:px-20 font-montserrat'>
-                <div className='bg-gray-200 rounded-lg'>
+            <div className='grid grid-cols-2  gap-3 px-3 md:grid-cols-4 md:px-20 font-montserrat pt-3'>
+                <div className='bg-gray-200 text-[#01282F] font-poppins'>
                     <img src={imageB} alt="" />
 
+                    <div className='px-2'>
+                        <h3 className='font-semibold text-[16px]'>Banga Soup</h3>
+                        <p className='text-[10px] text-[#02020280]'>South-South</p>
+                        <h3 className='font-bold text-[16px]'>$56.00</h3>
+                    </div>
                 </div>
+                
+                <div className='bg-gray-200 text-[#01282F] font-poppins'>
+                    <img src={imageB} alt="" />
+
+                    <div className='px-2'>
+                        <h3 className='font-semibold text-[16px]'>Banga Soup</h3>
+                        <p className='text-[10px] text-[#02020280]'>South-South</p>
+                        <h3 className='font-bold text-[16px]'>$56.00</h3>
+                    </div>
+                </div>
+                
+                {showM && (
+                    <>
+                    <div className='bg-gray-200 text-[#01282F] font-poppins'>
+                        <img src={imageB} alt="" />
+
+                        <div className='px-2'>
+                            <h3 className='font-semibold text-[16px]'>Banga Soup</h3>
+                            <p className='text-[10px] text-[#02020280]'>South-South</p>
+                            <h3 className='font-bold text-[16px]'>$56.00</h3>
+                        </div>
+                    </div>
+                    
+                    <div className='bg-gray-200 text-[#01282F] font-poppins'>
+                        <img src={imageB} alt="" />
+
+                        <div className='px-2'>
+                            <h3 className='font-semibold text-[16px]'>Banga Soup</h3>
+                            <p className='text-[10px] text-[#02020280]'>South-South</p>
+                            <h3 className='font-bold text-[16px]'>$56.00</h3>
+                        </div>
+                    </div>
+                    
+                    <div className='bg-gray-200 text-[#01282F] font-poppins'>
+                        <img src={imageB} alt="" />
+
+                        <div className='px-2'>
+                            <h3 className='font-semibold text-[16px]'>Banga Soup</h3>
+                            <p className='text-[10px] text-[#02020280]'>South-South</p>
+                            <h3 className='font-bold text-[16px]'>$56.00</h3>
+                        </div>
+                    </div>
+                    
+                    <div className='bg-gray-200 text-[#01282F] font-poppins'>
+                        <img src={imageB} alt="" />
+
+                        <div className='px-2'>
+                            <h3 className='font-semibold text-[16px]'>Banga Soup</h3>
+                            <p className='text-[10px] text-[#02020280]'>South-South</p>
+                            <h3 className='font-bold text-[16px]'>$56.00</h3>
+                        </div>
+                    </div>
+                    
+                    <div className='bg-gray-200 text-[#01282F] font-poppins'>
+                        <img src={imageB} alt="" />
+
+                        <div className='px-2'>
+                            <h3 className='font-semibold text-[16px]'>Banga Soup</h3>
+                            <p className='text-[10px] text-[#02020280]'>South-South</p>
+                            <h3 className='font-bold text-[16px]'>$56.00</h3>
+                        </div>
+                    </div>
+                    
+                    
+                    <div className='bg-gray-200 text-[#01282F] font-poppins'>
+                        <img src={imageB} alt="" />
+
+                        <div className='px-2'>
+                            <h3 className='font-semibold text-[16px]'>Banga Soup</h3>
+                            <p className='text-[10px] text-[#02020280]'>South-South</p>
+                            <h3 className='font-bold text-[16px]'>$56.00</h3>
+                        </div>
+
+                    </div>
+                    </>
+                )}
+                
+                
+            </div>
+            <div className='justify-end flex pr-3 mt-4'>
+            <Button onClick={handleShowM}/>
             </div>
         </div>
     </div>
