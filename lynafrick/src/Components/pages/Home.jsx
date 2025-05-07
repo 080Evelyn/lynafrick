@@ -12,12 +12,26 @@ import imageSo2 from '../../assets/Images/image (3).png'
 import imageSo3 from '../../assets/Images/Mask Group (2).png'
 import Button from '../reusablecomponents/button'
 import  imageB from '../../assets/Images/Images.png'
+import Quote from '../../assets/quote.svg'
+import Avatar from '../../assets/Avatar.svg'
+import LeftAngle from '../../assets/Carousel.svg'
+import RightAngle from '../../assets/Carousel (1).svg'
+import Slider from "react-slick";
+
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+  } from "@/components/ui/accordion"
 
 
 function Home() {
 
     const [showMore, setShowMore] = useState(false);
     const [showM, setShowM] = useState(false);
+    
+    
 
     const handleShowMore = () => {
         setShowMore(prev => !prev);
@@ -26,6 +40,26 @@ function Home() {
     const handleShowM = () => {
         setShowM(prev => !prev);
     }
+
+   
+
+
+   
+      
+    const settings = {
+        centerMode: true, 
+        centerPadding: "0px",
+        dots: true,
+        infinite: true,
+        speed:100,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      };
+
+
+
+
+
   return (
 
     <div className='bg-gray-200'>
@@ -191,7 +225,7 @@ function Home() {
         </div>
 
         <div className='bg-[#FFFFFF] py-8'>
-            <div className=' md:leading-4 leading-4'>
+            <div className=' md:leading-8 leading-4'>
                 <div className='font-bold font-poppins text-center md:text-[24px]'>Explore Our Latest Products</div>
                 <div className='text-center text-[#02020280] text-[10px] md:text-[20px]'>Here are some of our new products</div>
             </div>
@@ -286,13 +320,174 @@ function Home() {
                 
             </div>
             <div className='justify-end flex pr-3 mt-4'>
-            <Button onClick={handleShowM}/>
+              <Button onClick={handleShowM}/>
             </div>
         </div>
+
+        <div className='px-6'>
+
+            <div className='flex justify-between items-center py-4'>
+
+                <div className='font-bold text-[#000000] md:text-[24px]'>
+                    Meet our <span className='text-[#00D094]'>
+                        Customers
+                    </span>
+                </div>
+
+                <div className=''>
+                   <Button onClick={handleShowM}/>
+                </div>
+            </div>
+
+            <div  className="flex justify-center w-full">
+                <Slider {...settings} className='w-full'>
+    
+                    <div className='flex flex-col space-y-3 px-4 bg-[#000000] rounded-lg py-3 leading-5 md:h-[200px]'>
+                        <h3 className='flex justify-center text-[#FFFFFF] md:text-[20px]'>
+                            Goodm Package and fast delivery will surely shop from you again
+                        </h3>
+
+                        <div className='w-[230px] h-[1px] bg-gray-800 rounded-md mt-7 md:w-[1100px]'></div>
+
+                        <div className='flex justify-between items-center pt-4'>
+                            <div className='flex space-x-2 items-center'>
+                                <img src={Avatar} alt="" className='md:w-[90px]'/>
+                                <div>
+                                    <h3 className='flex justify-center text-[#FFFFFF] md:-[20px]'>Benson</h3>
+                                    <p className='flex text-gray-400 font-extralight'>Usa</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src={Quote}alt="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='flex flex-col space-y-3 px-4 bg-[#000000] rounded-lg py-3 leading-5 md:h-[200px]'>
+                        <h3 className='flex justify-center text-[#FFFFFF] md:text-[20px]'>
+                            Goodm Package and fast delivery will surely shop from you again
+                        </h3>
+
+                        <div className='w-[230px] h-[1px] bg-gray-800 rounded-md mt-7 md:w-[1100px]'></div>
+
+                        <div className='flex justify-between items-center pt-4'>
+                            <div className='flex space-x-2 items-center'>
+                                <img src={Avatar} alt="" className='md:w-[90px]'/>
+                                <div>
+                                    <h3 className='flex justify-center text-[#FFFFFF] md:text-[20px]'>Benson</h3>
+                                    <p className='flex text-gray-400 font-extralight'>Usa</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src={Quote}alt="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='flex flex-col space-y-3 px-4 bg-[#000000] rounded-lg py-3 leading-5 md:h-[200px]'>
+                        <h3 className='flex justify-center text-[#FFFFFF] md:text-[20px]'>
+                            Goodm Package and fast delivery will surely shop from you again
+                        </h3>
+
+                        <div className='w-[230px] h-[1px] bg-gray-800 rounded-md mt-7 md:w-[1100px]'></div>
+
+                        <div className='flex justify-between items-center pt-4'>
+                            <div className='flex space-x-2 items-center'>
+                                <img src={Avatar} alt="" className='md:w-[90px]'/>
+                                <div>
+                                    <h3 className='flex justify-center text-[#FFFFFF] md:text-[20px]'>Benson</h3>
+                                    <p className='flex text-gray-400 font-extralight'>Usa</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src={Quote}alt="" />
+                            </div>
+                        </div>
+                    </div>
+               
+                </Slider>
+            </div>
+
+            <div className="space-y-3 px-1 py-7  max-w-md md:max-w-[1100px] mx-auto">
+
+                <Accordion type="single" collapsible className=" md:grid md:grid-cols-2 md:gap-2 w-full space-y-2 ">
+                    
+                     <AccordionItem value="item-1" 
+                        className= 'px-4 py-2 rounded-lg data-[state=open]:bg-[#01282F] data-[state=closed]:bg-[#020202]'>
+                        <AccordionTrigger 
+                            className='text-[11px] md:text-[20px] data-[state=open]:text-[#00A676] data-[state=closed]:text-[#FFFFFF]'>
+                            What countries do you ship to?</AccordionTrigger>
+                        <AccordionContent 
+                            className='text-[11px] text-[#FFFFFF] md:text-[19px]'>
+                            We only ship to Canada, the USA, the UK, and Germany.
+                        </AccordionContent>
+                    </AccordionItem>
+              
+
+                    <AccordionItem value="item-2" 
+                        className='px-4 py-1 rounded-lg data-[state=open]:bg-[#01282F] data-[state=closed]:bg-[#020202]'>
+                        <AccordionTrigger 
+                            className='data-[state=open]:text-[#00A676] data-[state=closed]:text-[#FFFFFF] text-[11px] md:text-[20px]'>
+                            How do I give feedback?
+                        </AccordionTrigger>
+                        <AccordionContent className=''>
+                        
+                        </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="item-3" 
+                        className='px-4 py-1 rounded-lg data-[state=open]:bg-[#01282F] data-[state=closed]:bg-[#020202]'>
+                        <AccordionTrigger 
+                            className='text-[11px] md:text-[20px] data-[state=open]:text-[#00A676] data-[state=closed]:text-[#FFFFFF]'>
+                            Do you accept payments through other third-party 
+                            vendors such as Venmo or Cash app etc?
+                        </AccordionTrigger>
+                        <AccordionContent className=''>
+                        
+                        </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="item-4" 
+                        className='px-4 py-2 rounded-lg data-[state=open]:bg-[#01282F] data-[state=closed]:bg-[#020202]'>
+                        <AccordionTrigger 
+                            className='text-[#00A676] text-[11px] md:text-[20px] data-[state=open]:text-[#00A676] data-[state=closed]:text-[#FFFFFF]'>
+                                Do you accept a refund?</AccordionTrigger>
+                        <AccordionContent className='text-[#FFFFFF] text-[11px] md:text-[19px]'>
+                            We ensure quality package and delivery. So a refund is not accepted.
+                        </AccordionContent>
+                    </AccordionItem>
+                    
+                    <AccordionItem value="item-5" 
+                        className='px-4 py-2 rounded-lg data-[state=open]:bg-[#01282F] data-[state=closed]:bg-[#020202]'>
+                        <AccordionTrigger 
+                            className='text-[#FFFFFF] text-[11px] md:text-[20px] data-[state=open]:text-[#00A676] data-[state=closed]:text-[#FFFFFF]'>
+                                Do you deliver to other african country?</AccordionTrigger>
+                        <AccordionContent className=''>
+                        
+                        </AccordionContent>
+                    </AccordionItem>
+                    
+                    <AccordionItem value="item-6" 
+                        className='px-4 py-2 rounded-lg data-[state=open]:bg-[#01282F] data-[state=closed]:bg-[#020202]'>
+                        <AccordionTrigger
+                            className='text-[11px] md:text-[20px] data-[state=open]:text-[#00A676] data-[state=closed]:text-[#FFFFFF]'>
+                                How long does it take to deliver?</AccordionTrigger>
+                        <AccordionContent>
+                            
+                        </AccordionContent>
+                    </AccordionItem>
+
+                </Accordion>
+
+            </div>
+
+        </div>
+
     </div>
   )
 }
 
 export default Home;
-
-
