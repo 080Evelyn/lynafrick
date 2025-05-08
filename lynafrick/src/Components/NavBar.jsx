@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import { NavLink, Link } from 'react-router-dom';
 import { IoIosMenu } from "react-icons/io";
+import ProfileIcon from '../assets/Vector (4).svg'
+import ShoppingCartIcon from '../assets/Vector (5).svg'
 
 function NavBar() {
 
@@ -32,10 +34,15 @@ function NavBar() {
           </ul>
         </div>
 
-        <div className='hidden md:flex items-center gap-[7px]'>
+        <div className='hidden md:flex md:items-center md:gap-[4px]'>
           <button 
           className='md:flex text-[#01282F] rounded-sm font-semibold hover:bg-[#01282F] hover:text-white py-[6px] px-[20px]'><NavLink to='/signup'>Sign Up</NavLink></button>
           <button className='md:flex text-[#01282F] rounded-sm hover:bg-[#01282F] hover:text-white font-semibold py-[6px] px-[20px]'><NavLink to='/login'>Login</NavLink></button>
+        </div>
+
+        <div className='hidden md:flex md:items-center md:gap-[20px]'>
+          <div><NavLink to='/profile'><img src={ProfileIcon} alt="" className='md:w-[25px]'/></NavLink></div>
+          <div><NavLink to='/cart'><img src={ShoppingCartIcon} alt=""className='md:w-[25px]'/></NavLink></div>
         </div>
 
         {/* Hamburger Icon */}

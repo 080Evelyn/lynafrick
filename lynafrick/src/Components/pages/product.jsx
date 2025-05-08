@@ -4,6 +4,8 @@ import Images from '../../assets/Images/Images.png'
 import Filter from '../../assets/Vector (1).svg'
 import Filter1 from '../../assets/Vector (2).svg'
 import Filter2 from '../../assets/Vector (3).svg'
+import Share from '../../assets/Frame 11.svg'
+import Like from '../../assets/Frame 10.svg'
 import { NavLink } from 'react-router-dom';
 import { FaAngleRight } from "react-icons/fa6";
 import React, { useState } from 'react';
@@ -35,32 +37,7 @@ function product() {
     { id: 21, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
     { id: 22, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
     { id: 23, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 24, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 25, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 26, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 27, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 28, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 29, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 30, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 31, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 32, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 33, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 34, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 33, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 32, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 33, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 34, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 35, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 36, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 37, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 38, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 39, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 40, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 41, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 42, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 43, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 44, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 45, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
+  
   ];
 
   const itemsPerPage = 8;
@@ -91,9 +68,20 @@ function product() {
   
   return (
     <div className='relative w-full'>
-      <img src={Image} alt="" className='w-full h-[100px] md:h-[300px]'/>
-      <div className='absolute inset-0 z-10 pointer-events-none flex justify-center items-center text-[#FFFFFF] font-medium mb-[1500px] md:mb-[800px] text-[30px] md:text-[40px]'>Shop</div>
-      <div className='absolute inset-0 z-10 pointer-events-none  text-[#FFFFFF] flex items-center justify-center mb-[1450px]  md:mb-[800px] md:mt-16 md:space-x-1 text-[12px]  md:text-[15px]'>
+      <img 
+      src={Image} alt="" 
+      className='w-full h-[100px] md:h-[300px] object-cover brightness-50'
+      />
+
+      <div 
+      className='absolute inset-0 z-10 left-1/2 right-1/2 transform -translate-x-1/2 pointer-events-none flex justify-center items-center text-[#FFFFFF] font-medium mb-[1640px] md:mb-[900px] text-[20px] md:text-[40px]'
+      >
+        Shop
+      </div>
+  
+
+      <div 
+      className='absolute inset-0 z-10 pointer-events-none top-[-1600px] md:top-2 md:bottom-[830px] left-2 text-[#FFFFFF] flex items-center justify-center  md:space-x-1 text-[8px]  md:text-[15px]'>
         <div className='font-semibold'><NavLink to='/home'>Home</NavLink></div>
         <div className='text-[10px] md:text-[12px]'><FaAngleRight /></div>
         <div><NavLink>Shop</NavLink></div>
@@ -125,7 +113,8 @@ function product() {
           <div className='flex items-center text-[11px] md:text-[20px] space-x-2 md:space-x-4'>
             <div className='flex items-center space-x-2 '>
               <div className='bg-[#9F9F9F] w-[2px] h-[15px] md:h-[34px]'></div>
-              <div className='text-[8px] md:text-[13px]'>Showing 1–16 of 32 results</div>
+              <div className='text-[8px] md:text-[13px]'>
+                Showing {indexOfLastItem > products.length ? products.length : indexOfLastItem} of {products.length} results</div>
             </div>
           </div>
         </div>
@@ -140,22 +129,39 @@ function product() {
         </div>
       </div>
 
-
       <div className="px-4 md:px-12 py-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {currentItems.map((product, index) => (
             <NavLink to={`/product/${product.id}`} key={product.id}>
-            <div key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
+            <div key={index} className="bg-white shadow-md rounded-sm overflow-hidden">
               <div className="relative group">
                 <img src={product.image} alt={product.name} className="w-full h-[250px] object-cover" />
-                <div className="absolute inset-0 bg-black bg-opacity-50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                  Add to cart
+                <div className="absolute inset-0 bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                  
+                  <button
+                    className="bg-[#FFFFFF] text-black px-4 py-2 rounded hover:text-white hover:bg-[#00796B] transition"
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent NavLink navigation
+                      // Add to cart logic here (or call a handler)
+                      console.log(`Added ${product.name} to cart`);
+                    }}
+                    >
+                
+                    Add to cart
+                      
+                  </button>
+
+                  <div className='flex items-center space-x-2 mt-2'>
+                    <img src={Share} alt="" />
+                    <img src={Like} alt="" />
+                  </div>
+
                 </div>
               </div>
               <div className="p-4">
-                <h3 className="text-sm font-semibold">{currentItems.name}</h3>
-                <p className="text-xs text-gray-500">{currentItems.region}</p>
-                <p className="text-sm font-bold mt-2">${currentItems.price}</p>
+                <h3 className="text-sm font-semibold">{product.name}</h3>
+                <p className="text-xs text-gray-500">{product.region}</p>
+                <p className="text-sm font-bold mt-2">${product.price}</p>
               </div>
             </div>
             </NavLink>
@@ -166,7 +172,7 @@ function product() {
           <button
             onClick={handlePrev}
             disabled={currentPage === 1}
-            className={`px-1 md:px-3 py-1 border rounded ${currentPage === 1 ? 'bg-gray-200' : 'bg-white'}`}
+            className={`px-1 md:px-3 py-1 border rounded ${currentPage === 1 ? 'bg-gray-300' : 'bg-gray-200'}`}
           >
             Prev
           </button>
@@ -176,7 +182,7 @@ function product() {
               key={index}
               onClick={() => handlePageChange(index + 1)}
               className={`px-2 md:px-3 py-1 border rounded ${
-                currentPage === index + 1 ? 'bg-[#009688] text-white' : 'bg-white'
+                currentPage === index + 1 ? 'bg-[#009688] text-white' : 'bg-[#C2FFEE]'
               }`}
             >
               {index + 1}
@@ -186,7 +192,7 @@ function product() {
           <button
             onClick={handleNext}
             disabled={currentPage === totalPages}
-            className={`px-1 md:px-3 py-1 border rounded ${currentPage === totalPages ? 'bg-gray-200' : 'bg-white'}`}
+            className={`px-1 md:px-3 py-1 border rounded ${currentPage === totalPages ? 'bg-gray-300' : 'bg-gray-200'}`}
           >
             Next
           </button>
