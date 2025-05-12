@@ -9,6 +9,8 @@ import Like from '../../assets/Frame 10.svg'
 import { NavLink } from 'react-router-dom';
 import { FaAngleRight } from "react-icons/fa6";
 import React, { useState } from 'react';
+import ProfileIcon from '../../assets/Vector (4).svg'
+import ShoppingCartIcon from '../../assets/Vector (5).svg'
 
 
 function product() {
@@ -42,7 +44,14 @@ function product() {
 
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
+  const [add, setAdd] = useState([]);
+  const [showCart, setShowCart] = useState(false);
 
+
+  const addToCart = (product) => {
+    setAdd((prevItems) => [...prevItems, product]);
+
+  }
   // Pagination calculations
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -67,6 +76,50 @@ function product() {
   };
   
   return (
+    <>
+    <div className="md:absolute md:top-[34px] md:right-[60px] md:z-50">
+      <div className='flex gap-x-6'>
+        <div className='relative group'>
+          <img src={ProfileIcon} alt="profile" className="hidden md:flex size-6" />
+          <div className='absolute hidden dropdown-menu group-hover:block bg-slate-200 shadow-lg p-4 rounded'>
+            <ul className='flex flex-col space-y-2 w-[80px]'>
+              <li className='cursor-pointer hover:font-bold text-[15px]'>My Profile</li>
+              <li className='cursor-pointer hover:font-bold text-[15px]'>Orders</li>
+              <li className='cursor-pointer hover:font-bold text-[15px]'>Logout</li>
+            </ul>
+          </div>
+        </div>
+
+        <button onClick={() => setShowCart(!showCart)} className="relative">
+        <img src={ShoppingCartIcon} alt="Cart" className="hidden md:flex size-6" />
+        {add.length > 0 && (
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+            {add.length}
+          </span>
+        )}
+      </button>
+    </div>
+  </div>
+
+{showCart && (
+  <div className="fixed top-16 right-4 w-[300px] bg-white shadow-lg p-4 z-50 rounded border">
+    <h2 className="text-lg font-bold mb-2">Cart Items</h2>
+    {add.length === 0 ? (
+      <p>No items in cart.</p>
+    ) : (
+      add.map((item, index) => (
+        <div key={index} className="border-b py-2">
+          <p className="text-sm font-medium">{item.name}</p>
+          <p className="text-xs text-gray-500">${item.price}</p>
+        </div>
+      ))
+    )}
+  </div>
+)}
+
+
+
+
     <div className='relative w-full'>
       <img 
       src={Image} alt="" 
@@ -114,7 +167,7 @@ function product() {
             <div className='flex items-center space-x-2 '>
               <div className='bg-[#9F9F9F] w-[2px] h-[15px] md:h-[34px]'></div>
               <div className='text-[8px] md:text-[13px]'>
-                Showing {indexOfLastItem > products.length ? products.length : indexOfLastItem} of {products.length} results</div>
+                Showing 1 - {indexOfLastItem > products.length ? products.length : indexOfLastItem} of {products.length} results</div>
             </div>
           </div>
         </div>
@@ -133,17 +186,18 @@ function product() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {currentItems.map((product, index) => (
             <NavLink to={`/product/${product.id}`} key={product.id}>
-            <div key={index} className="bg-white shadow-md rounded-sm overflow-hidden">
+            <div className="bg-white shadow-md rounded-sm overflow-hidden">
               <div className="relative group">
                 <img src={product.image} alt={product.name} className="w-full h-[250px] object-cover" />
+            
                 <div className="absolute inset-0 bg-black bg-opacity-50 text-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition">
                   
                   <button
-                    className="bg-[#FFFFFF] text-black px-4 py-2 rounded hover:text-white hover:bg-[#00796B] transition"
+                    className="bg-[#FFFFFF] text-black px-7 py-2 hover:text-white hover:bg-[#00796B] transition"
                     onClick={(e) => {
-                      e.preventDefault(); // Prevent NavLink navigation
-                      // Add to cart logic here (or call a handler)
-                      console.log(`Added ${product.name} to cart`);
+                      e.preventDefault(); // prevent NavLink from triggering when clicking the button
+                      addToCart(product); // ✅ this actually calls the function
+                      
                     }}
                     >
                 
@@ -155,16 +209,16 @@ function product() {
                     <img src={Share} alt="" />
                     <img src={Like} alt="" />
                   </div>
+                </div>
 
                 </div>
-              </div>
               <div className="p-4">
                 <h3 className="text-sm font-semibold">{product.name}</h3>
                 <p className="text-xs text-gray-500">{product.region}</p>
                 <p className="text-sm font-bold mt-2">${product.price}</p>
               </div>
             </div>
-            </NavLink>
+          </NavLink>
           ))}
         </div>
 
@@ -201,6 +255,7 @@ function product() {
       </div>
 
     </div>
+    </>
   )
 }
 

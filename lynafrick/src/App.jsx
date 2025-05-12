@@ -17,6 +17,7 @@ import DetailPage from './Components/pages/detailPage'
 import Products from './Components/pages/product'
 
 function App() {
+  
 
   return (
     <div className="min-h-screen flex flex-col">
