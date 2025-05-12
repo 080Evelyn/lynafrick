@@ -2,12 +2,23 @@ import React, { useState } from 'react'
 
 import { NavLink, Link } from 'react-router-dom';
 import { IoIosMenu } from "react-icons/io";
+import ProfileIcon from '../assets/Vector (4).svg'
+import ShoppingCartIcon from '../assets/Vector (5).svg'
 
 function NavBar() {
 
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
+  const [showCart, setShowCart] = useState(false);  
+  const [closeCart, setCloseCart] = useState(false);  
+
+  const cart = () => {
+    setShowCart(!showCart);
+  }
+
+
+
 
   
 
@@ -23,20 +34,35 @@ function NavBar() {
 
         <div>
           
-          <ul className='hidden md:flex gap-[20px] items-center text-[#01282F]'>
-                  <li><NavLink to="/home" className='hover:font-semibold'>Home</NavLink></li>
-                  <li><NavLink to="/product" className='hover:font-semibold'>Product</NavLink></li>
-                  <li><NavLink to="/about-us" className='hover:font-semibold'>About Us</NavLink></li>
-                  <li><NavLink to="/contact-us" className='hover:font-semibold'>Contact Us</NavLink></li>
-                  <li><NavLink to="/blog" className='hover:font-semibold'>Blog</NavLink></li>
+          <ul className='hidden md:flex gap-[30px] items-center text-[#01282F]'>
+              <li><NavLink to="/home" className='hover:font-semibold'>Home</NavLink></li>
+              <li><NavLink to="/product" className='hover:font-semibold'>Product</NavLink></li>
+              <li><NavLink to="/about-us" className='hover:font-semibold'>About Us</NavLink></li>
+              <li><NavLink to="/contact-us" className='hover:font-semibold'>Contact Us</NavLink></li>
           </ul>
         </div>
 
-        <div className='hidden md:flex items-center gap-[7px]'>
+        {/* <div className='hidden md:flex md:items-center md:gap-[4px]'>
           <button 
           className='md:flex text-[#01282F] rounded-sm font-semibold hover:bg-[#01282F] hover:text-white py-[6px] px-[20px]'><NavLink to='/signup'>Sign Up</NavLink></button>
           <button className='md:flex text-[#01282F] rounded-sm hover:bg-[#01282F] hover:text-white font-semibold py-[6px] px-[20px]'><NavLink to='/login'>Login</NavLink></button>
+        </div> */}
+
+        <div className='hidden md:flex md:items-center md:gap-[20px]'>
+          {/* <div><NavLink to='/profile'><img src={ProfileIcon} alt="" className='md:w-[25px]'/></NavLink></div> */}
+          {/* <div><img src={ShoppingCartIcon} alt=""className='md:w-[25px] cursor-pointer' onClick={cart}/></div> */}
         </div>
+
+        {showCart && (
+          <div className='absolute top-16 right-10 bg-white shadow-lg w-[300px] h-[400px] z-50' onClick={() => setCloseCart(!closeCart)}>  
+            {/* Cart items will be displayed here */}
+            <div className=''  >
+              <h2 className='text-center font-semibold'>Shopping Cart</h2>
+
+            </div>
+            {/* Add cart items here */}
+          </div>
+        )}
 
         {/* Hamburger Icon */}
         <IoIosMenu className='w-[24px] h-[24px] md:hidden cursor-pointer' onClick={handleClick}/>
