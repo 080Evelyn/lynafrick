@@ -4,6 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { IoIosMenu } from "react-icons/io";
 import ProfileIcon from '../assets/Vector (4).svg'
 import ShoppingCartIcon from '../assets/Vector (5).svg'
+import Layer from '../assets/Layer 1.svg'
 
 function NavBar() {
 
@@ -29,7 +30,7 @@ function NavBar() {
       {/* Hamburger Icon */}
       <div className='flex justify-between items-center px-[16px] md:px-[94.5px] bg-gray-200 md:py-[23px]'>
         <div>
-          <h1 className='poppins-semibold text-[20px] md:text-[30px] text-[#00D094]'>LYN</h1>
+          <img src={Layer} alt="" className='size-[12px] md:size-[30px] text-[#00D094]'/>
         </div>
 
         <div>
