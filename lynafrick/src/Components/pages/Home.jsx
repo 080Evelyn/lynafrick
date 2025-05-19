@@ -72,7 +72,7 @@ function Home() {
 
 
 
-        <div className="md:absolute md:top-[27px] md:right-[60px] md:z-50">
+        <div className="md:absolute md:top-[18px] md:right-[60px] md:z-50">
             <div className='md:flex md:pace-x-4'>
                 <div className='hidden md:flex md:items-center md:gap-[4px]'>
                     <button 

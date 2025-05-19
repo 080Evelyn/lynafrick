@@ -8,7 +8,7 @@ import Share from '../../assets/Frame 11.svg'
 import Like from '../../assets/Frame 10.svg'
 import { NavLink } from 'react-router-dom';
 import { FaAngleRight } from "react-icons/fa6";
-import React, { createContext, useState } from 'react';
+import { createContext, useState } from 'react';
 import ProfileIcon from '../../assets/Vector (4).svg'
 import ShoppingCartIcon from '../../assets/Vector (5).svg'
 import  ShoppingCart  from './shoppingCart'
@@ -20,6 +20,15 @@ import  ShoppingCart  from './shoppingCart'
 
 
 export const CartContext = createContext();
+// import  ShoppingCart  from './shoppingCart'
+
+
+
+
+
+
+
+// export const CartContext = createContext();
 
 
 function product() {
@@ -57,28 +66,10 @@ function product() {
   const [showCart, setShowCart] = useState(false);
 
 
-  const addToCart = (product) => {
-    setAdd((prevItems) => [...prevItems, product]);
+  // const addToCart = (product) => {
+  //   setAdd((prevItems) => [...prevItems, product]);
 
-  }
-
-
-  const removeFromCart = (product) => {
-      setAdd((prevItems) => prevItems.filter(item => item.id !== product.id));
-  };
-
-  const clearCart = () => {
-      setAdd([]);
-  };
-
-  const value = {
-    addToCart,
-    removeFromCart,
-    clearCart,
-    cartItems: add,
-  };
-
-
+  // }
   // Pagination calculations
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -101,28 +92,22 @@ function product() {
       setCurrentPage(currentPage - 1);
     }
   };
-  
+
   return (
 
     <>
-
-      {/* <CartContext.Provider value={value}>
-          <ShoppingCart />
-      </CartContext.Provider> */}
-
-
-      <div className="md:absolute md:top-[34px] md:right-[60px] md:z-50">
-        <div className='flex gap-x-6'>
-          <div className='relative group'>
-            <img src={ProfileIcon} alt="profile" className="hidden md:flex size-6" />
-            <div className='absolute hidden dropdown-menu group-hover:block bg-slate-200 shadow-lg p-4 rounded'>
-              <ul className='flex flex-col space-y-2 w-[80px]'>
-                <li className='cursor-pointer hover:font-bold text-[15px]'>My Profile</li>
-                <li className='cursor-pointer hover:font-bold text-[15px]'>Orders</li>
-                <li className='cursor-pointer hover:font-bold text-[15px]'>Logout</li>
-              </ul>
-            </div>
+    <div className="md:absolute md:top-[34px] md:right-[60px] md:z-50">
+      <div className='flex gap-x-6'>
+        <div className='relative group'>
+          <img src={ProfileIcon} alt="profile" className="hidden md:flex size-6" />
+          <div className='absolute hidden dropdown-menu group-hover:block bg-slate-200 shadow-lg p-4 rounded'>
+            <ul className='flex flex-col space-y-2 w-[80px]'>
+              <li className='cursor-pointer hover:font-bold text-[15px]'>My Profile</li>
+              <li className='cursor-pointer hover:font-bold text-[15px]'>Orders</li>
+              <li className='cursor-pointer hover:font-bold text-[15px]'>Logout</li>
+            </ul>
           </div>
+        </div>
 
           <button onClick={() => setShowCart(!showCart)} className="relative">
           <img src={ShoppingCartIcon} alt="Cart" className="hidden md:flex size-6" />
