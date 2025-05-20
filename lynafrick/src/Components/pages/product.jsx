@@ -11,7 +11,6 @@ import { FaAngleRight } from "react-icons/fa6";
 import { createContext, useState } from 'react';
 import ProfileIcon from '../../assets/Vector (4).svg'
 import ShoppingCartIcon from '../../assets/Vector (5).svg'
-import  ShoppingCart  from './shoppingCart'
 
 
 
@@ -66,10 +65,10 @@ function product() {
   const [showCart, setShowCart] = useState(false);
 
 
-  // const addToCart = (product) => {
-  //   setAdd((prevItems) => [...prevItems, product]);
+  const addToCart = (product) => {
+    setAdd((prevItems) => [...prevItems, product]);
 
-  // }
+  }
   // Pagination calculations
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -96,7 +95,7 @@ function product() {
   return (
 
     <>
-    <div className="md:absolute md:top-[34px] md:right-[60px] md:z-50">
+    <div className="md:absolute md:top-[23px] md:right-[60px] md:z-50">
       <div className='flex gap-x-6'>
         <div className='relative group'>
           <img src={ProfileIcon} alt="profile" className="hidden md:flex size-6" />
@@ -110,24 +109,24 @@ function product() {
         </div>
 
           <button onClick={() => setShowCart(!showCart)} className="relative">
-          <img src={ShoppingCartIcon} alt="Cart" className="hidden md:flex size-6" />
+          <img src={ShoppingCartIcon} alt="Cart" className="hidden md:flex size-6 cursor-pointer" />
           {add.length > 0 && (
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
               {add.length}
             </span>
           )}
-        </button>
+          </button>
       </div>
     </div>
 
   {showCart && (
-    <div className="fixed top-16 right-4 w-[300px] bg-white shadow-lg p-4 z-50 rounded border">
+    <div className="fixed top-12 right-[-10px] w-[300px] bg-gray-200 shadow-lg p-4 z-50 rounded border">
       <h2 className="text-lg font-bold mb-2">Cart Items</h2>
       {add.length === 0 ? (
         <p>No items in cart.</p>
       ) : (
         add.map((item, index) => (
-          <div key={index} className="border-b py-2">
+          <div key={index} className="border-b py-2 flex space-x-[20px]">
             <p className="text-sm font-medium">{item.name}</p>
             <p className="text-xs text-gray-500">${item.price}</p>
           </div>
