@@ -9,7 +9,7 @@ import ShoppingCartIcon from '../../assets/Vector (5).svg'
 function aboutUs() {
   return (
  <div>
-    <div className="md:absolute md:top-[34px] md:right-[60px] md:z-50"> 
+    <div className="md:absolute md:top-[23px] md:right-[60px] md:z-50"> 
       <div className='flex gap-x-6'>
         <div className='relative group'>
           <img src={ProfileIcon} alt="profile" className="hidden md:flex size-6" />

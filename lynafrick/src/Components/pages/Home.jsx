@@ -64,7 +64,7 @@ function Home() {
   return (
 
     <>
-        <div className="md:absolute md:top-[34px] md:right-[350px] md:z-50">
+        <div className="hidden md:flex md:absolute md:top-[25px] md:right-[363px] md:z-50">
             <div>
                 <h2><NavLink to="/blog" className='hover:font-semibold'>Blog</NavLink></h2>
             </div>
@@ -72,7 +72,7 @@ function Home() {
 
 
 
-        <div className="md:absolute md:top-[27px] md:right-[60px] md:z-50">
+        <div className="md:absolute md:top-[18px] md:right-[60px] md:z-50">
             <div className='md:flex md:pace-x-4'>
                 <div className='hidden md:flex md:items-center md:gap-[4px]'>
                     <button 
