@@ -8,7 +8,7 @@ import Share from '../../assets/Frame 11.svg'
 import Like from '../../assets/Frame 10.svg'
 import { NavLink } from 'react-router-dom';
 import { FaAngleRight } from "react-icons/fa6";
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import ProfileIcon from '../../assets/Vector (4).svg'
 import ShoppingCartIcon from '../../assets/Vector (5).svg'
 
@@ -33,29 +33,29 @@ export const CartContext = createContext();
 function product() {
 
   const products = [
-    { id: 1, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 2, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 3, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 4, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 5, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 6, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 7, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
+    { id: 1, image: Images, name: 'Ododo Soup', region: 'South-South', price: 56 },
+    { id: 2, image: Images, name: 'Soup1', region: 'South-South', price: 76 },
+    { id: 3, image: Images, name: 'Banga8 Soup', region: 'South-South', price: 36 },
+    { id: 4, image: Images, name: 'Egwusi2 Soup', region: 'South-South', price: 76 },
+    { id: 5, image: Images, name: 'Amala4 Soup', region: 'South-South', price: 96 },
+    { id: 6, image: Images, name: 'Oha3 Soup', region: 'South-South', price: 76 },
+    { id: 7, image: Images, name: 'Nsala5 Soup', region: 'South-South', price: 46 },
     { id: 8, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 9, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 10, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 11, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 12, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 13, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 14, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 15, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 16, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 17, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 18, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 19, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 20, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 21, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 22, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
-    { id: 23, image: Images, name: 'Banga Soup', region: 'South-South', price: 56 },
+    { id: 9, image: Images, name: 'Nsala Soup', region: 'South-South', price: 36 },
+    { id: 10, image: Images, name: 'Egwusi Soup', region: 'South-South', price: 56 },
+    { id: 11, image: Images, name: 'Vegitable Soup', region: 'South-South', price: 576 },
+    { id: 12, image: Images, name: 'Amala Soup', region: 'South-South', price: 569 },
+    { id: 13, image: Images, name: 'Banga Soup0', region: 'South-South', price: 546 },
+    { id: 14, image: Images, name: 'Oha Soup', region: 'South-South', price: 56 },
+    { id: 15, image: Images, name: 'Okro1 Soup', region: 'South-South', price: 59 },
+    { id: 16, image: Images, name: 'Egwusi5 Soup', region: 'South-South', price: 57 },
+    { id: 17, image: Images, name: 'Fried Rice', region: 'South-South', price: 567 },
+    { id: 18, image: Images, name: 'Banga Soup4', region: 'South-South', price: 560 },
+    { id: 19, image: Images, name: 'Banga Soup3', region: 'South-South', price: 567 },
+    { id: 20, image: Images, name: 'Bitter Leaf Soup', region: 'South-South', price: 569 },
+    { id: 21, image: Images, name: 'Bang3 Soup', region: 'South-South', price: 565 },
+    { id: 22, image: Images, name: 'Banga1 Soup', region: 'South-South', price: 564 },
+    { id: 23, image: Images, name: 'Okro Soup', region: 'South-South', price: 563 },
   
   ];
 
@@ -63,12 +63,16 @@ function product() {
   const [currentPage, setCurrentPage] = useState(1);
   const [add, setAdd] = useState([]);
   const [showCart, setShowCart] = useState(false);
+  const [quantity, setQuantity] = useState(0)
 
-
+  
   const addToCart = (product) => {
     setAdd((prevItems) => [...prevItems, product]);
-
+    setQuantity((quan) => quan + 1);
   }
+  useEffect(() => {
+    addToCart
+  },[])
   // Pagination calculations
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -109,7 +113,9 @@ function product() {
         </div>
 
           <button onClick={() => setShowCart(!showCart)} className="relative">
+
           <img src={ShoppingCartIcon} alt="Cart" className="hidden md:flex size-6 cursor-pointer" />
+
           {add.length > 0 && (
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
               {add.length}
@@ -118,19 +124,36 @@ function product() {
           </button>
       </div>
     </div>
+       
 
   {showCart && (
-    <div className="fixed top-12 right-[-10px] w-[300px] bg-gray-200 shadow-lg p-4 z-50 rounded border">
-      <h2 className="text-lg font-bold mb-2">Cart Items</h2>
+    <div className="absolute top-12 right-[1px] w-[300px] bg-gray-200 overflow-y shadow-lg p-4 z-50 rounded">
+      <h2 className="text-lg font-bold mb-2">Shopping Cart</h2>
+      <div className='bg-gray-600 h-[2px] w-[200px]'></div>
       {add.length === 0 ? (
         <p>No items in cart.</p>
       ) : (
-        add.map((item, index) => (
-          <div key={index} className="border-b py-2 flex space-x-[20px]">
-            <p className="text-sm font-medium">{item.name}</p>
-            <p className="text-xs text-gray-500">${item.price}</p>
-          </div>
-        ))
+        <div>
+          
+          {add.map((item, index) => (
+            <div key={index} className="flex items-center py-4 space-x-[20px]">
+            
+              <div>
+                <img src={item.image} alt="Cart" className="hidden md:flex size-12 rounded-sm cursor-pointer" />
+              </div>
+
+              <div>
+                <p className="text-sm font-medium">{item.name}</p>
+                <div className='flex space-x-5'>
+                  <p className="text-xs text-gray-500">{quantity} x</p>
+                  <p className="text-xs text-gray-500">${item.price}</p>
+                </div>
+              </div>
+              
+            </div>
+
+          ))}
+        </div>
       )}
     </div>
   )}
