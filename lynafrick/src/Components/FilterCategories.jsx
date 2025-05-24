@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import FilterIcon from '../../src/assets/Vector (1).svg'
-import CategoryIcon from '../../src/assets/Vector (2).svg'
+import React, { useState } from "react";
+import FilterIcon from "../../src/assets/Vector (1).svg";
+import CategoryIcon from "../../src/assets/Vector (2).svg";
 
 function FilterCategories() {
   const [showFilter, setShowFilter] = useState(false);
@@ -47,9 +47,21 @@ function FilterCategories() {
         {showCategories && (
           <div className="absolute top-full mt-2 w-48 bg-white border rounded-md shadow-lg p-3 z-10">
             <ul className="space-y-2">
-              <li><a href="#" className="hover:text-blue-600">Electronics</a></li>
-              <li><a href="#" className="hover:text-blue-600">Fashion</a></li>
-              <li><a href="#" className="hover:text-blue-600">Home</a></li>
+              <li>
+                <a href="#" className="hover:text-blue-600">
+                  Electronics
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-blue-600">
+                  Fashion
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-blue-600">
+                  Home
+                </a>
+              </li>
             </ul>
           </div>
         )}

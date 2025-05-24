@@ -1,11 +1,11 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [add, setAdd] = useState([]);
 
-   // Load from localStorage on mount
+  // Load from localStorage on mount
   useEffect(() => {
     const savedCart = localStorage.getItem("cartItems");
     if (savedCart) {
@@ -23,7 +23,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (product) => {
-    setAdd((prevItems) => prevItems.filter(item => item.id !== product.id));
+    setAdd((prevItems) => prevItems.filter((item) => item.id !== product.id));
   };
 
   const clearCart = () => {
@@ -37,9 +37,5 @@ export const CartProvider = ({ children }) => {
     cartItems: add,
   };
 
-  return (
-    <CartContext.Provider value={value}>
-      {children}
-    </CartContext.Provider>
-  );
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

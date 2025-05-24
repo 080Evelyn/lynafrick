@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
-import {CartContext} from './product'
-
+import React, { useContext } from "react";
+import { CartContext } from "./product";
 
 function shoppingCart() {
   // const {addTocart, removeFromCart, clearCart, cartItems} = useContext(CartContext);
@@ -9,10 +8,8 @@ function shoppingCart() {
   //   return cartItems.reduce((total, item) => total + item.price, 0);
   //   };
   return (
-    
     <div>
-      
-       {/* <h2>Shopping Cart</h2>
+      {/* <h2>Shopping Cart</h2>
       {cartItems.length === 0 ? (
         <p>No items in cart.</p>
       ) : (
@@ -27,9 +24,8 @@ function shoppingCart() {
       )}
       <p>Total: ${calculateTotalPrice()}</p>
       <button onClick={clearCart}>Clear Cart</button> */}
-
     </div>
-  )
+  );
 }
 
 export default shoppingCart;
