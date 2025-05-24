@@ -91,7 +91,7 @@ function contactUs() {
               </label>
               <input
                 type="text"
-                className="h-10 md:h-14 border-2 rounded-sm px-4"
+                className="h-10 md:h-14 border-2 border-gray-400 rounded-sm px-4"
                 placeholder="Abc"
               />
             </div>
@@ -102,7 +102,7 @@ function contactUs() {
               </label>
               <input
                 type="text"
-                className="h-10 md:h-14 border-2 rounded-sm px-4"
+                className="h-10 md:h-14 border-2 border-gray-400 rounded-sm px-4"
                 placeholder="Abc@def.com"
               />
             </div>
@@ -111,7 +111,7 @@ function contactUs() {
               <label className="text-[#000000] font-medium mb-2">Subject</label>
               <input
                 type="text"
-                className="h-10 md:h-14 border-2 rounded-sm px-4"
+                className="h-10 md:h-14 border-2 border-gray-400 rounded-sm px-4"
                 placeholder="This is an optional"
               />
             </div>
@@ -120,7 +120,7 @@ function contactUs() {
               <label className="text-[#000000] font-medium mb-2">Message</label>
               <input
                 type="text"
-                className="h-16 md:h-24 border-2 rounded-sm px-4"
+                className="h-16 md:h-24 border-2 border-gray-400 rounded-sm px-4"
                 placeholder="Hi! i’d like to ask about"
               />
             </div>

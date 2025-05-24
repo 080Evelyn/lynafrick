@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
-import { CartContext } from "./product";
+import { CartContext } from "../../../src/context/CartContext";
 
 function shoppingCart() {
-  // const {addTocart, removeFromCart, clearCart, cartItems} = useContext(CartContext);
+  const { addTocart, removeFromCart, clearCart, cartItems } =
+    useContext(CartContext);
 
-  // const calculateTotalPrice = () => {
-  //   return cartItems.reduce((total, item) => total + item.price, 0);
-  //   };
+  const calculateTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + item.price, 0);
+  };
   return (
     <div>
-      {/* <h2>Shopping Cart</h2>
+      <h2>Shopping Cart</h2>
       {cartItems.length === 0 ? (
         <p>No items in cart.</p>
       ) : (
@@ -23,7 +24,7 @@ function shoppingCart() {
         </ul>
       )}
       <p>Total: ${calculateTotalPrice()}</p>
-      <button onClick={clearCart}>Clear Cart</button> */}
+      <button onClick={clearCart}>Clear Cart</button>
     </div>
   );
 }

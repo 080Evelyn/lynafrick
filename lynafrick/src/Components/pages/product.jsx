@@ -7,16 +7,19 @@ import Share from "../../assets/Frame 11.svg";
 import Like from "../../assets/Frame 10.svg";
 import { NavLink } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa6";
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../../../src/context/CartContext";
 import ProfileIcon from "../../assets/Vector (4).svg";
 import ShoppingCartIcon from "../../assets/Vector (5).svg";
 
-export const CartContext = createContext();
+// export const CartContext = createContext();
 // import  ShoppingCart  from './shoppingCart'
 
 // export const CartContext = createContext();
 
 function product() {
+  const { addToCart, cartItems, removeFromCart } = useContext(CartContext);
   const products = [
     {
       id: 1,
@@ -177,17 +180,20 @@ function product() {
 
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
-  const [add, setAdd] = useState([]);
+  // const [add, setAdd] = useState([]);
   const [showCart, setShowCart] = useState(false);
-  const [quantity, setQuantity] = useState(0);
+  // const [quantity, setQuantity] = useState(0);
 
-  const addToCart = (product) => {
-    setAdd((prevItems) => [...prevItems, product]);
-    setQuantity((quan) => quan + 1);
-  };
-  useEffect(() => {
-    addToCart;
-  }, []);
+  // const addToCart = (product) => {
+  //   setAdd((prevItems) => [...prevItems, product]);
+  //   setQuantity((quan) => quan + 1);
+  //   localStorage.setItem("cart", JSON.stringify(updatedCart)); // Save to localStorage
+  // };
+  // useEffect(() => {
+  //   const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+  //   setAdd(storedCart);
+  //   setQuantity(storedCart.length);
+  // }, []);
   // Pagination calculations
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -210,6 +216,10 @@ function product() {
       setCurrentPage(currentPage - 1);
     }
   };
+
+  const totalPrice = cartItems.reduce((total, item) => {
+    return total + item.price * (item.quantity || 1);
+  }, 0);
 
   return (
     <>
@@ -243,9 +253,9 @@ function product() {
               className="hidden md:flex size-6 cursor-pointer"
             />
 
-            {add.length > 0 && (
+            {cartItems.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                {add.length}
+                {cartItems.length}
               </span>
             )}
           </button>
@@ -256,11 +266,11 @@ function product() {
         <div className="absolute top-12 right-[1px] w-[300px] bg-gray-200 overflow-y shadow-lg p-4 z-50 rounded">
           <h2 className="text-lg font-bold mb-2">Shopping Cart</h2>
           <div className="bg-gray-600 h-[2px] w-[200px]"></div>
-          {add.length === 0 ? (
+          {cartItems.length === 0 ? (
             <p>No items in cart.</p>
           ) : (
             <div>
-              {add.map((item, index) => (
+              {cartItems.map((item, index) => (
                 <div
                   key={index}
                   className="flex items-center py-4 space-x-[20px]"
@@ -274,14 +284,32 @@ function product() {
                   </div>
 
                   <div>
-                    <p className="text-sm font-medium">{item.name}</p>
-                    <div className="flex space-x-5">
-                      <p className="text-xs text-gray-500">{quantity} x</p>
-                      <p className="text-xs text-gray-500">${item.price}</p>
+                    <p className="text-sm font-medium flex">{item.name}</p>
+                    <div className="flex items-center space-x-3">
+                      <div className="flex space-x-5">
+                        <p className="text-xs text-gray-500">
+                          {item.quantity} x
+                        </p>
+                        <p className="text-xs text-gray-500">${item.price}</p>
+                      </div>
+                      <div>
+                        <button
+                          onClick={() => removeFromCart(item)}
+                          className="cursor-pointer"
+                        >
+                          <div className="bg-gray-300 text-black rounded-md px-2 py-1">
+                            x
+                          </div>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               ))}
+
+              <div className="mt-4 font-bold text-lg">
+                Total Price: ${totalPrice.toFixed(2)}
+              </div>
             </div>
           )}
         </div>
