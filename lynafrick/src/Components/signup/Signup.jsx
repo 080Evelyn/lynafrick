@@ -48,7 +48,7 @@ function Signup() {
 
         <div className='md:col-span-2'>
 
-            <div className='flex flex-col items-center justify-center mx-auto md:mt-[200px]'>
+            <div className='flex flex-col items-center justify-center mx-auto md:mt-[50px]'>
                 <h1 className='text-[#141B34] font-bold text-[20px] md:text-[40px] mt-4'>LYNAFRICK</h1>
                 <h3 className='text-[#00D094] font-semibold pt-6 md:pt-5 md:text-[30px]'>Sign Up</h3>
                 <p className='text-[#01282F7A] text-center text-[9px] w-[170px] md:w-[400px] pt-1 md:text-[15px]'>Enter your credentials below to create a free account</p>

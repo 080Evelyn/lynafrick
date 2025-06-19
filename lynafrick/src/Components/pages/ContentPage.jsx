@@ -21,7 +21,7 @@ function ContentPage() {
   const location = useLocation()
 
   // pages where you don't want NavBar and Footer
-  const hideLayoutRoutes = ['/login', '/signup']
+  const hideLayoutRoutes = ['/login', '/signup', '/confirm-code']
   const shouldHideLayout = hideLayoutRoutes.includes(location.pathname)
 
   return (
