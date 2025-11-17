@@ -1,11 +1,9 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import ProductsSection from "../components/ProductsSection";
-import BenefitsSection from "../components/BenefitsSection";
-import AboutSection from "../components/AboutSection";
-// import ProcessSection from "../components/ProcessSection";
-import Footer from "../components/Footer";
+import AboutSection from "@/components/AboutSection";
+import BenefitsSection from "@/components/BenefitsSection";
+import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
+import ProductsSection from "@/components/ProductsSection";
 import Testimonial from "@/components/TestimonialsSection";
 
 function LandingPage() {

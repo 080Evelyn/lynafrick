@@ -21,7 +21,7 @@ import FilterCategories from "../FilterCategories";
 import DetailPage from "./detailPage";
 import Products from "./product";
 import ConfirmCode from "./ConfirmCode";
-import LandingPage from "../../main-page/home";
+import LandingPage from "@/main-page/home";
 
 function ContentPage() {
   const location = useLocation();
