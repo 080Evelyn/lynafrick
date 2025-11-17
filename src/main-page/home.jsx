@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../components/Navbar";
+import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import ProductsSection from "../components/ProductsSection";
 import BenefitsSection from "../components/BenefitsSection";
@@ -11,7 +11,7 @@ import Testimonial from "@/components/TestimonialsSection";
 function LandingPage() {
   return (
     <div>
-      <NavBar />
+      <Navbar />
       <Hero />
       <ProductsSection />
       <BenefitsSection />
