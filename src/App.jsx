@@ -1,4 +1,4 @@
-import ContentPage from "./Components/pages/ContentPage";
+import ContentPage from "./store/pages/ContentPage";
 
 function App() {
   return (

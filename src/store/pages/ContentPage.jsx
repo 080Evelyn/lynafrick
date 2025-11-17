@@ -21,6 +21,7 @@ import FilterCategories from "../FilterCategories";
 import DetailPage from "./detailPage";
 import Products from "./product";
 import ConfirmCode from "./ConfirmCode";
+import LandingPage from "../../main-page/home";
 
 function ContentPage() {
   const location = useLocation();
@@ -36,6 +37,7 @@ function ContentPage() {
 
       <main className="flex-grow">
         <Routes>
+          <Route path="/" element={<LandingPage />} />
           <Route path="/store/" element={<Navigate to="/home" />} />
           <Route path="/store/home" element={<Home />} />
           <Route path="/store/product" element={<Product />} />

@@ -24,7 +24,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/Components/ui/accordion";
+} from "@/store/ui/accordion";
 
 function Home() {
   const [showMore, setShowMore] = useState(false);

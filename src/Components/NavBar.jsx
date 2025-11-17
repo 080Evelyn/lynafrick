@@ -1,85 +1,110 @@
-import React, { useState } from 'react'
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import Layer from "../assets/Layer 1.svg";
 
-import { NavLink, Link } from 'react-router-dom';
-import { IoIosMenu } from "react-icons/io";
-import ProfileIcon from '../assets/Vector (4).svg'
-import ShoppingCartIcon from '../assets/Vector (5).svg'
-import Layer from '../assets/Layer 1.svg'
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
 
-function NavBar() {
-
-  const [click, setClick] = useState(false);
-
-  const handleClick = () => setClick(!click);
-  const [showCart, setShowCart] = useState(false);  
-  const [closeCart, setCloseCart] = useState(false);  
-
-  const cart = () => {
-    setShowCart(!showCart);
-  }
-
-
-
-
-  
-
+  const links = [
+    { to: "/", label: "Home" },
+    { to: "/products", label: "Products" },
+    { to: "/about", label: "About Us" },
+    { to: "/contact", label: "Contact Us" },
+  ];
 
   return (
-    <div>
+    <nav className="sticky top-0 z-50 max-md:px-2 bg-white/20 backdrop-blur-md shadow-md">
+      <div className="flex justify-between items-center px-4 py-3 md:px-8">
+        {/* Logo */}
+        <img src={Layer} alt="Logo" className="w-8 h-8 md:w-10 md:h-10" />
 
-      {/* Hamburger Icon */}
-      <div className='flex justify-between items-center px-[16px] md:px-[94.5px] bg-gray-200 md:py-[23px]'>
-        <div>
-          <img src={Layer} alt="" className='size-[12px] md:size-[30px] text-[#00D094]'/>
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-8 items-center text-gray-800">
+          {links.map((link, index) => (
+            <li key={index}>
+              <NavLink
+                to={link.to}
+                className="hover:text-green-600 transition-colors"
+              >
+                {link.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+
+        {/* Desktop CTAs */}
+        <div className="hidden md:flex gap-4">
+          <Button className="bg-green-600 hover:bg-green-700 text-white">
+            Shop Now
+          </Button>
+          <Button
+            variant="outline"
+            className="px-6 py-3 rounded-md border-lime-700 text-lime-700 hover:bg-lime-50"
+          >
+            Become a Distributor
+          </Button>
         </div>
 
-        <div>
-          
-          <ul className='hidden md:flex gap-[30px] items-center text-[#01282F]'>
-              <li><NavLink to="/home" className='hover:font-semibold'>Home</NavLink></li>
-              <li><NavLink to="/product" className='hover:font-semibold'>Product</NavLink></li>
-              <li><NavLink to="/about-us" className='hover:font-semibold'>About Us</NavLink></li>
-              <li><NavLink to="/contact-us" className='hover:font-semibold'>Contact Us</NavLink></li>
-          </ul>
-        </div>
-
-
-        <div className='hidden md:flex md:items-center md:gap-[20px]'>
-          {/* <div><NavLink to='/profile'><img src={ProfileIcon} alt="" className='md:w-[25px]'/></NavLink></div> */}
-          {/* <div><img src={ShoppingCartIcon} alt=""className='md:w-[25px] cursor-pointer' onClick={cart}/></div> */}
-        </div>
-
-        {showCart && (
-          <div className='absolute top-16 right-10 bg-white shadow-lg w-[300px] h-[400px] z-50' onClick={() => setCloseCart(!closeCart)}>  
-            {/* Cart items will be displayed here */}
-            <div className=''  >
-              <h2 className='text-center font-semibold'>Shopping Cart</h2>
-
-            </div>
-            {/* Add cart items here */}
-          </div>
-        )}
-
-        {/* Hamburger Icon */}
-        <IoIosMenu className='w-[24px] h-[24px] md:hidden cursor-pointer' onClick={handleClick}/>
-
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden focus:outline-none w-6 h-6 flex flex-col justify-center items-center"
+        >
+          <span
+            className={`block w-5 h-0.5 bg-gray-800 transition-all duration-300 ${
+              isOpen ? "rotate-45 translate-y-0.5" : "-translate-y-1"
+            }`}
+          ></span>
+          <span
+            className={`block w-5 h-0.5 bg-gray-800 transition-all duration-300 ${
+              isOpen ? "opacity-0" : "opacity-100"
+            }`}
+          ></span>
+          <span
+            className={`block w-5 h-0.5 bg-gray-800 transition-all duration-300 ${
+              isOpen ? "-rotate-45 -translate-y-0.5" : "translate-y-1"
+            }`}
+          ></span>
+        </button>
       </div>
-        {/* Mobile Menu */}
-        {click && (
-        <div className='left-7 bg-gray-200 shadow-lg w-full md:hidden z-50'>
-          <ul className='flex flex-col gap-[10px] items-start pl-3 text-[#01282F] py-[20px]'>
-            <li><NavLink to="/home" className='hover:font-semibold' onClick={() => setClick(false)}>Home</NavLink></li>
-            <li><NavLink to="/product" className='hover:font-semibold' onClick={() => setClick(false)}>Products</NavLink></li>
-            <li><NavLink to="/about-us" className='hover:font-semibold' onClick={() => setClick(false)}>About</NavLink></li>
-            <li><NavLink to="/contact-us" className='hover:font-semibold' onClick={() => setClick(false)}>Contact</NavLink></li>
-            <li><NavLink to="/profile" className='hover:font-semibold' onClick={() => setClick(false)}>Profile</NavLink></li>
-            <li><NavLink to="/shopping-cart" className='hover:font-semibold' onClick={() => setClick(false)}>Shopping Cart</NavLink></li>
-          </ul>
-        </div>
-      )}
-    </div>
-    
-  )
-}
 
-export default NavBar;
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden bg-white/20 backdrop-blur-md shadow-md transition-all duration-300 ${
+          isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+        }`}
+      >
+        <ul className="flex flex-col gap-4 items-center py-4 text-gray-800">
+          {links.map((link, index) => (
+            <li key={index}>
+              <NavLink
+                to={link.to}
+                className="hover:text-green-600"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </NavLink>
+            </li>
+          ))}
+
+          <li className="flex gap-4 mt-4">
+            <Button
+              className="bg-green-600 hover:bg-green-700 text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Shop Now
+            </Button>
+            <Button
+              variant="outline"
+              className="px-6 py-3 rounded-md border-lime-700 text-lime-700 hover:bg-lime-50"
+              onClick={() => setIsOpen(false)}
+            >
+              Become a Distributor
+            </Button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+}
