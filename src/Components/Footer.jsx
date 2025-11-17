@@ -109,15 +109,7 @@ const Footer = () => {
 
             {/* Legal / Secure Payments */}
             <div className="flex items-center space-x-6 text-sm">
-              <Link
-                to="/privacy-policy"
-                className="text-gray-400 hover:text-green-600 transition-colors duration-300"
-              >
-                Privacy Policy
-              </Link>
-
               <div className="flex items-center space-x-2 text-gray-400">
-                <span>Secure Payments</span>
                 <div className="flex space-x-1">
                   <svg
                     className="w-5 h-5"
