@@ -1,4 +1,4 @@
-import AboutSection from "@/components/AboutSection";
+import AboutSection from "@/components/AboutSection.jsx";
 import BenefitsSection from "@/components/BenefitsSection";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
