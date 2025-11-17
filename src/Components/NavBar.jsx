@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import Layer from "../assets/Layer 1.svg";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +16,11 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 max-md:px-2 bg-white/20 backdrop-blur-md shadow-md">
       <div className="flex justify-between items-center px-4 py-3 md:px-8">
         {/* Logo */}
-        <img src={Layer} alt="Logo" className="w-8 h-8 md:w-10 md:h-10" />
+        <img
+          src="/images/logo.svg"
+          alt="Logo"
+          className="w-8 h-8 md:w-10 md:h-10"
+        />
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 items-center text-gray-800">
